@@ -4,3 +4,11 @@ c = Cube()
 
 c.pprint()
 
+print(c.is_solved())
+
+c.turn("R")
+
+c.pprint()
+
+print(c.is_solved())
+

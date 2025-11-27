@@ -38,6 +38,7 @@ class Cube:
 
         return s
 
+
     def pprint(self) -> None:
         color_map = {
             "R": Fore.RED,
@@ -50,6 +51,16 @@ class Cube:
         for c in self.__str__():
             print(color_map.get(c, Fore.RESET) + c, end="")
         print(Style.RESET_ALL, end="")
+        
+    
+    def is_solved(self) -> bool:
+        """ returns if the cube is solved or not """
+        for face in self.faces:
+            for row in face:
+                for color in row:
+                    if color != face[0][0]:
+                        return False
+        return True
         
     
     def turn(self, str):
