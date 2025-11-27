@@ -14,7 +14,7 @@ class Cube:
     def __str__(self) -> str:
         f = self.faces
         s = ""
-
+        
         # U 
         for r in range(3):
             s += "       " + f[0][r][0] + " " + f[0][r][1] + " " + f[0][r][2] + "\n"
@@ -61,6 +61,11 @@ class Cube:
                     if color != face[0][0]:
                         return False
         return True
+    
+    
+    def stringify(self):
+        """ return string representation as accepted by the constructor """
+        return "".join(self.faces.flatten())
         
     
     def turn(self, str):
