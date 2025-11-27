@@ -1,9 +1,9 @@
 import numpy as np
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 #WWWWWWWWWGGGGGGGGGRRRRRRRRRBBBBBBBBBOOOOOOOOOYYYYYYYYY
 
 class Cube:
-    def __init__(self, str):
+    def __init__(self, str="WWWWWWWWWGGGGGGGGGRRRRRRRRRBBBBBBBBBOOOOOOOOOYYYYYYYYY"):
         self.faces = np.empty((6, 3, 3), dtype='<U1')
         for i in range(6):
             for j in range(3):
