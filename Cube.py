@@ -1,20 +1,14 @@
 import numpy as np
 from colorama import Fore, Style
-#WWWWWWWWWGGGGGGGGGRRRRRRRRRBBBBBBBBBOOOOOOOOOYYYYYYYYY
 
 class Cube:
-    def __init__(self, str="WWWWWWWWWGGGGGGGGGRRRRRRRRRBBBBBBBBBOOOOOOOOOYYYYYYYYY"):
-        self.faces = np.empty((6, 3, 3), dtype='<U1')
-        for i in range(6):
-            for j in range(3):
-                for k in range(3):
-                    self.faces[i][j][k] = str[i*9 + j*3 + k]
-    
+    def __init__(self, state="WWWWWWWWWGGGGGGGGGRRRRRRRRRBBBBBBBBBOOOOOOOOOYYYYYYYYY"):
+        self.faces = np.array(list(state)).reshape(6, 3, 3)
     
     def __str__(self) -> str:
         f = self.faces
         s = ""
-
+        
         # U 
         for r in range(3):
             s += "       " + f[0][r][0] + " " + f[0][r][1] + " " + f[0][r][2] + "\n"
@@ -39,7 +33,7 @@ class Cube:
         return s
 
 
-    def pprint(self) -> None:
+    def show(self) -> None:
         color_map = {
             "R": Fore.RED,
             "G": Fore.GREEN,
@@ -61,6 +55,11 @@ class Cube:
                     if color != face[0][0]:
                         return False
         return True
+    
+    
+    def stringify(self):
+        """ return string representation as accepted by the constructor """
+        return "".join(self.faces.flatten())
         
     
     def turn(self, str):
@@ -222,3 +221,4 @@ class Cube:
                 else:
                     print(f'ERROR - direction must be 0 (clockwise) or 1 (counter-clockwise)')
                     return
+                
